@@ -22,6 +22,7 @@ To process WSIs, first, the tissue regions in each biopsy slide are segmented us
 
 ### Data Arrangement
 Put WSI features under **./dataset/WSI_features**
+
 Put our provided file (WsiVQA.json) under **./dataset/WSI_captions**
 
 
