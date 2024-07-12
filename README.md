@@ -19,3 +19,18 @@ To download diagnostic WSIs (formatted as .svs files), please refer to the [NIH 
 
 ### Processing Whole Slide Images
 To process WSIs, first, the tissue regions in each biopsy slide are segmented using Otsu's Segmentation on a downsampled WSI using OpenSlide. The 256 x 256 patches without spatial overlapping are extracted from the segmented tissue regions at the desired magnification. Consequently, a pretrained backbone is used to encode raw image patches into feature vectors, which we then save as .pt files for each WSI. We achieve the pre-processing of WSIs by using <a href="https://github.com/mahmoodlab/CLAM" target="blank"><b>CLAM</b></a>
+
+### Data Arrangement
+Put WSI features under **./dataset/WSI_features**
+Put our provided file (WsiVQA.json) under **./dataset/WSI_captions**
+
+
+## Running Experiments
+Experiments can be run using the following generic command-line:
+### Training model
+```shell
+python main.py --mode 'Train' --n_gpu <GPUs to be used, e.g '0,1,2,3' for 4 cards training> 
+```
+### Testing model
+```shell
+python main.py --mode 'Test' --image_dir <SLIDE FEATURE PATH> --ann_path <CAPTION PATH> --split_path <PATH to the directory containing the train/val/test splits> --checkpoint_dir <PATH TO CKPT>
