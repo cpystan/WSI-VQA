@@ -2,7 +2,20 @@
 
 
 =====
+
 [Arxiv](https://arxiv.org/abs/2407.05603)
+
 **Summary** We propose a framework to achieve WSI-VQA. It helps pathologists to obtain the result of carcinoma grading, immunohistochemical biomarker prediction, and survival outcome prediction following the visual question-answering pattern. We also propose a scalable pipeline to automatically curate VQA pairs for whole slide images. The WSI-VQA dataset <a href="https://drive.google.com/file/d/1l8XUgDKgzDCZzneLG7PZFbUmL9NP7GhF/view?usp=drive_link" target="blank"><b>Link</b></a> is now available here.
 
 <img src="pics/model.png" width="1500px" align="center" />
+
+
+
+## Pre-requisites:
+We will share our collected dataset but WSIs still need to be preprocessed due to their large resolution.
+For a quick start, we provide several WSI features after processing in the repository. You can now download our code and directly run the code.
+### Downloading TCGA Slides
+To download diagnostic WSIs (formatted as .svs files), please refer to the [NIH Genomic Data Commons Data Portal](https://portal.gdc.cancer.gov/). WSIs for each cancer type can be downloaded using the [GDC Data Transfer Tool](https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/).
+
+### Processing Whole Slide Images
+To process WSIs, first, the tissue regions in each biopsy slide are segmented using Otsu's Segmentation on a downsampled WSI using OpenSlide. The 256 x 256 patches without spatial overlapping are extracted from the segmented tissue regions at the desired magnification. Consequently, a pretrained backbone is used to encode raw image patches into feature vectors, which we then save as .pt files for each WSI. We achieve the pre-processing of WSIs by using <a href="https://github.com/mahmoodlab/CLAM" target="blank"><b>CLAM</b></a>
