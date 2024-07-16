@@ -56,3 +56,17 @@ the ones in the blue rectangle are from the open-ended subset. The choice which 
 underlined is the right answer. These questions are all challenging because they require
 sufficient medical knowledge and understanding of complex characteristics in the gi-
 gapixel WSIs.
+
+## Citation
+If you find our work useful in your research or if you use parts of this code please consider citing our paper:
+```shell
+@misc{chen2024wsivqainterpretingslideimages,
+      title={WSI-VQA: Interpreting Whole Slide Images by Generative Visual Question Answering}, 
+      author={Pingyi Chen and Chenglu Zhu and Sunyi Zheng and Honglin Li and Lin Yang},
+      year={2024},
+      eprint={2407.05603},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.05603}, 
+}
+```
