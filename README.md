@@ -46,7 +46,7 @@ python main.py --mode 'Train' --n_gpu <GPUs to be used, e.g '0,1,2,3' for 4 card
 ### Testing model
 ```shell
 python main.py --mode 'Test' --image_dir <SLIDE FEATURE PATH> --ann_path <CAPTION PATH> --split_path <PATH to the directory containing the train/val/test splits> --checkpoint_dir <PATH TO CKPT>
-
+```
 ## Examples
 <img src="pics/qa.png" width="1200px" align="center" />
 
