@@ -25,6 +25,15 @@ Put WSI features under **./dataset/WSI_features**
 
 Put our provided file (WsiVQA.json) under **./dataset/WSI_captions**
 
+## Environment
+* Linux (Tested on Ubuntu 18.04) 
+* NVIDIA GPU (Tested on Nvidia GeForce A100) with CUDA 12.0
+* Python==3.8
+* torch==1.10.0+cu111
+* torchvision==0.11.0+cu111
+* pycocoevalcap==1.2
+* pycocotools==2.0.7
+* transformers==4.33.3
 
 ## Running Experiments
 Experiments can be run using the following generic command-line:
