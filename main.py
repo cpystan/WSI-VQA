@@ -30,7 +30,7 @@ def parse_agrs():
     # Data input settings
     parser.add_argument('--image_dir', type=str, default='./dataset/WSI_features', help='the path to the directory containing the encoded wsi patches.')
    
-    parser.add_argument('--ann_path', type=str, default='./dataset/WSI_captions/WsiVQA.json', help='the path to the directory containing the data.')
+    parser.add_argument('--ann_path', type=str, default='./dataset/WSI_captions', help='the path to the directory containing the data.')
     parser.add_argument('--split_path', type=str, default='./dataset/splits_0.csv', help='the path to the directory containing the train/val/test splits.')
     
     # Data loader settings
@@ -52,7 +52,7 @@ def parse_agrs():
     parser.add_argument('--num_layers', type=int, default=3, help='the number of layers of Transformer.')
     parser.add_argument('--dropout', type=float, default=0.1, help='the dropout rate of Transformer.')
     parser.add_argument('--logit_layers', type=int, default=1, help='the number of the logit layer.')
-    parser.add_argument('--bos_idx', type=int, default=1083, help='the index of <bos>.')
+    parser.add_argument('--bos_idx', type=int, default=1243, help='the index of <bos>.')
     parser.add_argument('--eos_idx', type=int, default=0, help='the index of <eos>.')
     parser.add_argument('--pad_idx', type=int, default=0, help='the index of <pad>.')
     parser.add_argument('--use_bn', type=int, default=0, help='whether to use batch normalization.')
