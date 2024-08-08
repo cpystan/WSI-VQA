@@ -25,16 +25,19 @@ class Tokenizer(object):
     def create_vocabulary(self):
         total_tokens = []
 
-        with open(self.ann_path, 'r', encoding='utf-8') as file:    
-            data = json.load(file) 
+        tmp=[]
+        for js in os.listdir(self.ann_path):
+            with open(os.path.join(self.ann_path,js), 'r', encoding='utf-8') as file:    
+                data = json.load(file) 
 
-        for item in data:
-            del item['Id']
+            for item in data:
+                del item['Id']
+            tokens = self.clean_report(str(data)).split()
+            tmp.extend(tokens)
 
-        tokens = self.clean_report(str(data)).split()
 
 
-        counter = Counter(tokens)
+        counter = Counter(tmp)
         if self.args.text_extractor =='scratch':
             vocab = [k for k, v in counter.items() if v >= self.threshold] + ['<unk>'] +['<bos>'] + ['<sep>']
 
