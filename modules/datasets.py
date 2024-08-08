@@ -44,7 +44,7 @@ class BaseDataset(Dataset):
         
         self.examples = []
         
-        with open(self.ann_path, 'r', encoding='utf-8') as file:  
+        with open(f'{self.ann_path}/WsiVQA_{split}.json', 'r', encoding='utf-8') as file:  
             data = json.load(file) 
             
         ids = [item['Id'] for item in data]
@@ -52,17 +52,20 @@ class BaseDataset(Dataset):
         count=0
 
         max_seq_length=0
-        for dir in os.listdir(self.image_dir):    
-            count+=1
-            image_path = os.path.join(self.image_dir,dir)
+        for dir in os.listdir(self.image_dir):
+            if not 'DX1' in dir:
+                continue
             
+            image_path = os.path.join(self.image_dir,dir)
+
             pairs=[]
             case_id = dir[:12]
             for idx,name in enumerate(ids):
                 if name==case_id:
                     pairs.append(data[idx])
                     assert data[idx]['Id']==case_id
-
+            if len(pairs)>0:
+                count+=1
 
             for item in pairs:
                 
