@@ -47,4 +47,4 @@ def compute_cindex(samples):
                 all_event_times.append(eval(gts))
                 all_estimate.append(eval(res))
 
-    return 1-concordance_index_censored([True]*len(all_estimate), all_event_times, all_estimate, tied_tol=1e-08)[0]
+    return concordance_index_censored([True]*len(all_estimate), all_event_times, all_estimate, tied_tol=1e-08)[0]
